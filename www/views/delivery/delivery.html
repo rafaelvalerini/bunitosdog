@@ -1,0 +1,100 @@
+<ion-view class="loginBg" >
+  	<ion-content class="padding main">
+  		<div class="list card">
+
+		  <div class="item item-avatar" ng-show="deliveryCtrl.card.type_delivery == 1">
+		    <img src="img/delivery.png" style="background-color: white;">
+		    <h2>Resumo</h2>
+		    <p>Abaixo segue um resumo do pedido.</p>
+		  </div>
+
+		  <div class="item item-avatar" ng-show="deliveryCtrl.card.type_delivery == 2">
+		  	<img src="img/shop.png" style="background-color: white;">
+		    <h2>Resumo</h2>
+		    <p>Abaixo segue um resumo do pedido.</p>
+		  </div>
+
+		  <div class="item item-body" style="margin-left: 10px; margin-right: 10px;">
+		  	<p><b>Loja:</b> {{deliveryCtrl.store.name}}</p>
+		   	<p>
+		   		<b>Tipo de Entrega:</b> 
+		   		<typedelivery ng-show="deliveryCtrl.card.type_delivery == 1">Delivery<br />
+		   			<b>Endereço:</b> {{deliveryCtrl.card.address}}
+		   		</typedelivery>
+		   		<typedelivery ng-show="deliveryCtrl.card.type_delivery == 2">Vou retirar na loja</typedelivery>
+		   	</p>
+		   	<p>
+		   		<b>Pagamento:</b>
+		   		<typedelivery ng-show="deliveryCtrl.card.type_delivery == 2">Vou pagar na loja</typedelivery>
+		   		<typedelivery ng-show="deliveryCtrl.card.type_delivery == 1">
+		   			<payment ng-show="deliveryCtrl.card.payment.id == 1">
+		   				Levaremos a máquina de cartão de crédito: 
+		   									<card ng-show="deliveryCtrl.card.payment.card == 1">Visa</card>
+											<card ng-show="deliveryCtrl.card.payment.card == 2">MasterCard</card>
+											<card ng-show="deliveryCtrl.card.payment.card == 3">Maestro</card>
+											<card ng-show="deliveryCtrl.card.payment.card == 4">Sodexo</card>
+											<card ng-show="deliveryCtrl.card.payment.card == 5">Hipercard</card>
+											<card ng-show="deliveryCtrl.card.payment.card == 6">Good Card</card>
+											<card ng-show="deliveryCtrl.card.payment.card == 7">Elo</card>
+											<card ng-show="deliveryCtrl.card.payment.card == 8">Dinners Club</card>
+											<card ng-show="deliveryCtrl.card.payment.card == 9">American Express</card>
+											<card ng-show="deliveryCtrl.card.payment.card == 10">Vr</card>
+		   			</payment>
+		   			<payment ng-show="deliveryCtrl.card.payment.id == 2">
+		   				Dinheiro:  	<troco ng-show="deliveryCtrl.card.payment.back_value == ''">Não levaremos troco</troco>
+		   							<troco ng-show="deliveryCtrl.card.payment.back_value != ''">Troco para: {{deliveryCtrl.card.payment.back_value}}</troco>
+		   			</payment>
+		   		</typedelivery>
+		   	</p>
+		    
+		   	<p><b>Produtos:</b> <br />
+		   		<p ng-repeat="product in deliveryCtrl.card.products">
+		   			<b> Menu: </b> {{product.menu.name}} <br />
+		   			<b> Produto: </b> {{product.name}} <br />
+		   			<b> Quantidade: </b> {{product.quantity}} <br />
+		   			<obs ng-show="product.obs"><b> Obs: </b>{{product.obs}} <br /></obs>
+		   			<add ng-show="product.options.length > 0"><b> Opções: </b>
+		   			<optionalName ng-repeat="option in product.options" >
+		   				{{option.name}}<br />
+		   			</optionalName>
+		   			</add>
+		   			<add ng-show="product.additionals.length > 0"><b> Adicionais: </b>
+		   				<additional ng-show="product.additionals.length > 0" ng-repeat="additional in product.additionals track by $index">{{additional.name}}
+		   					<virgula ng-show="$index != (additionals.lenght - 1)">,</virgula>
+		   				</additional><br />
+		   			</add>
+		   		</p>
+		   	</p>
+
+		   	<p>
+		   		<b>Total dos produtos: </b>
+		   		{{deliveryCtrl.card.total_value}}
+		   	</p>
+
+		   	<p ng-show="deliveryCtrl.card.type_delivery == 1">
+		   		<b>Taxa de entrega: </b> {{deliveryCtrl.store.value_tax_delivery_string}}
+		   	</p>
+
+		   	<p ng-show="deliveryCtrl.card.type_delivery == 2">
+		   		<b>Taxa de entrega: </b> R$ 0,00
+		   	</p>
+
+		   	<p>
+		   		<b>Total: </b> {{deliveryCtrl.card.total_geral}}
+		   	</p>
+
+		   	<a class="button button-block button-danger" href="#/app/cart">
+			  Corrigir pedido
+			</a>
+
+		   	<button class="button button-block button-continue" ng-click="deliveryCtrl.confirmOrder()">
+			  Efetuar pedido
+			</button>
+
+		  </div>
+
+		</div>
+
+  	</ion-content>
+  	
+</ion-view>

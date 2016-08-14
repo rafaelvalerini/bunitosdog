@@ -1,0 +1,15 @@
+<ion-view class="loginBg" >
+	
+  	<ion-content class="padding main">
+  		<div class="list">
+
+		    <a ng-repeat="menu in menuCtrl.menus" class="item item-avatar" href="#/app/menu/{{menu.id}}/products">
+		      <img src="{{menu.logo}}">
+		      <h2>{{menu.name}}</h2>
+		      <p>{{menu.description}}</p>
+		    </a>
+
+		</div>
+  	</ion-content>
+  	
+</ion-view>

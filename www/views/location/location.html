@@ -1,0 +1,60 @@
+<ion-view class="loginBg">
+	<ion-header-bar align-title="center" class="bar bar-header bar-main">
+	  <div class="buttons">
+	    	<a href="#" onclick="window.history.back();" class="button icon ion-chevron-left headerButton" ></a>
+	   	</div>
+	  <h1 class="title"><img src="img/header-logo.png"></h1>
+	</ion-header-bar>
+  	<ion-content class="padding main">
+  		<div class="list card">
+
+		  <div class="item item-avatar">
+		    <img src="img/search.png" style="background-color: white;">
+		    <h2>Localização </h2>
+		    <p>Selecione o local de entrega</p>
+		  </div>
+
+		  <div class="item item-body" style="margin-left: 10px; margin-right: 10px;">
+		   	<p style="text-align: center;">Deseja entregar no endereço abaixo?</p>
+		   	<p style="text-align: center;"><b>Endereço:</b> {{locationCtrl.user.address}}</p>
+		   	<p style="text-align: center;"><b>Contato:</b> {{locationCtrl.user.phone}}</p>
+		    <p style="text-align: center; padding-bottom: 10px;">
+		      	<a href="#/app/delivery" class="button button-block button-continue">
+				  <i class="ion-android-locate"></i> Entregar neste endereço
+				</a>
+		    </p>
+		  </div>
+		</div>
+
+		<div class="list card">
+
+		  <div class="item item-avatar">
+		    <img src="img/search.png" style="background-color: white;">
+		    <h2>É um outro endereço? </h2>
+		    <p>Selecione o local de entrega</p>
+		  </div>
+
+		  <div class="item item-body" style="margin-left: 10px; margin-right: 10px;">
+		   	
+		   	<p style="text-align: center;">Preenha as informações abaixo</p>
+
+		   	<div class="list">
+			  	<label class="item item-input item-stacked-label">
+			    	<span class="input-label">Endereço completo:</span>
+			    	<input type="text" placeholder="Digite seu endereço aqui." ng-model="locationCtrl.userNewAddress.address">
+			  	</label>
+			  	<label class="item item-input item-stacked-label">
+			    	<span class="input-label">Telefone de contato:</span>
+			    	<input type="text" placeholder="Digite seu telefone aqui." ng-model="locationCtrl.userNewAddress.phone">
+			  	</label>
+		  	</div>
+
+		    <p style="text-align: center; padding-bottom: 10px;">
+		      	<button class="button button-block button-continue" ng-click="locationCtrl.updateAddress()">
+				  <i class="ion-android-locate"></i> Entregar neste endereço
+				</button>
+		    </p>
+		  </div>
+		</div>
+  	</ion-content>
+</ion-view>

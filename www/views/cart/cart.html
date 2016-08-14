@@ -1,0 +1,80 @@
+<ion-view class="loginBg">
+	
+	<ion-content class="padding main" >
+
+		<div ng-show="cartCtrl.showCart()">
+
+			<div class="list card" ng-repeat="cart in cartCtrl.getCart() track by $index">
+
+				<div class="item item-avatar"  ng-click="cartCtrl.removeProduct($index);">
+					<img src="{{cart.product.logo}}" style="background-color: white;">
+					<h2>{{cart.product.name}}</h2>
+					<p>{{cart.menu.name}}</p>
+					<span class="badge badge-assertive">{{cart.total}}</span>
+				</div>
+
+				<div class="item item-body" style="margin-top: 0px;">
+					<p style="margin-top: 0px;">
+						{{cart.product.description}} <br />
+						<b>Qtde</b>: {{cart.quantity}} <br>
+						<additional ng-show="cart.obs"><b>Obs:</b> {{cart.obs}} <br></additional>
+						<additional ng-show="cart.options.length > 0"><b>Opções:</b><br />
+							<additional ng-repeat="option in cart.options" style="margin-left: 10px;">
+								{{option.name}}<br />
+							</additional>
+						</additional>
+					</p>
+
+					<p>
+						<additional ng-show="cart.additional.length > 0"><b>Adicionais:</b><br />
+							<additional ng-repeat="add in cart.additional" style="margin-left: 10px;">
+								{{add.name}} - {{add.value}} <br />
+							</additional>
+						</additional>
+					</p>
+				</div>
+
+			</div>
+
+			<ul class="list">
+				<li class="item">
+					Valor Total:
+					<span class="badge badge-assertive" style="margin-top: 0px;">{{cartCtrl.total}}</span>
+				</li>
+			</ul>
+
+			<div class="list">
+			  <label class="item item-input item-stacked-label">
+			    <textarea placeholder="Observações para o vendedor:" ng-model="cartCtrl.observation"></textarea>
+			  </label>
+			</div>
+
+			<a href="#/app/menu" class="button button-block colorButton">Adicionar mais produtos</a>
+
+			<button class="button button-block button-continue" ng-click="cartCtrl.confirmCart()">
+				Finalizar pedido
+			</button>
+		</div>
+
+		<div ng-show="!cartCtrl.showCart()">
+
+			<div class="list card" >
+
+				<div class="item item-body" style="padding: 0; margin-left: 10px; margin-right: 10px; text-align: center;">
+					<br /><h2>Seu carrinho está vazio</h2>
+					<p>Clique no botão abaixo e procure os produtos desejados. Após a escolha, adicione ele ao carrinho para concluir a compra</b>.</p>
+
+					<a href="#/app/menu" class="button button-block button-continue" style="width: 324px; margin-left: 6px;">
+
+						Selecionar produtos
+
+					</a>
+
+				</div>
+
+			</div>
+
+			
+		</div>
+	</ion-content>
+</ion-view>

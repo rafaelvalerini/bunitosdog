@@ -1,0 +1,60 @@
+<ion-view class="loginBg">
+	
+  	<ion-content class="padding main" ng-show="ordersCtrl.showOrders">
+  		
+  		<div class="list" >
+
+		  	<a ng-repeat="order in ordersCtrl.orders track by $index" href="#/app/order/{{order.id}}" class="item item-avatar">
+		    	<img src="img/listapedido.png" style="background-color: white;">
+		    	<h2>Pedido: {{order.id}}</h2>
+		    	<p style="font-size: 12px;">Status: <b>{{order.statusName}} </b></p>
+		    	<span class="badge badge-assertive" style="margin-top: -1px; font-size: 11px;">{{order.total_geral}}</span>
+		 	</a>
+		  
+		</div>
+
+  	</ion-content>
+
+  	<ion-content class="padding main" ng-show="ordersCtrl.showOrdersNotFound">
+  		
+  		<div class="list card" >
+
+			<div class="item item-body" style="padding: 0; margin-left: 10px; margin-right: 10px; text-align: center;">
+			   	<p>Não encontramos nenhum pedido realizado</p>
+
+			   	<p>Clique no botão abaixo e procure os produtos desejados. Após a escolha, adicione ele ao carrinho para concluir sua primeira compra</b>.</p>
+			    
+			   	<a href="#/app/menu" class="button button-block button-continue" style="width: 324px; margin-left: 6px;">
+			  
+				  Selecionar produtos
+
+				</a>
+
+			</div>
+			  
+		</div>
+
+  	</ion-content>
+
+  	<ion-content class="padding main" ng-show="ordersCtrl.loginNotFound">
+  		
+  		<div class="list card" >
+
+			  <div class="item item-body" style="padding: 0; margin-left: 10px; margin-right: 10px; text-align: center;">
+			   	<p>Você ainda não efetuou login</p>
+
+			   	<p>Clique no botão abaixo e efetue login para que possamos encontrar seus pedidos</b>.</p>
+			    
+			   	<a href="#/app/login/1" class="button button-block button-continue" style="width: 324px; margin-left: 6px;">
+			  
+				  Efetuar Login
+
+				</a>
+
+			  </div>
+			  
+			</div>
+
+  	</ion-content>
+
+</ion-view>

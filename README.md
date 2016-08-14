@@ -1,2 +1,0 @@
-# bunitosdog
-IOS Bunitos Dog

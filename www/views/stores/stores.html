@@ -1,0 +1,74 @@
+<ion-view class="loginBg">
+  	<ion-content class="padding main">
+  		<div class="list" ng-show="storesCtrl.isDelivery">
+			<div class="item item-avatar">
+				<img src="img/shop.png" style="background-color: white;"/>
+				<h2>Loja e forma de entrega</h2>
+				<p>Selecione a loja e forma de entrega</p>
+			</div>
+		</div>
+
+  		<div class="list card" ng-repeat="store in storesCtrl.stores" ng-show="!storesCtrl.isDelivery || store.isPickupStore || store.isDelivery">
+			<div class="item item-avatar" >
+			    <img src="img/shop.png" style="background-color: white;">
+			    <h2 style="margin-top: 11px;">{{store.name}}</h2>
+			    <p>
+			    	<span class="badge badge-assertiveopen" style="margin-top: 9px;" ng-show="store.open">Aberto</span>
+			    	<span class="badge badge-assertive" style="margin-top: 9px;" ng-show="!store.open">Fechado</span>
+			    </p>
+			  </div>
+
+			  <div class="item item-body">
+			  	<p ng-show="storesCtrl.isDelivery">
+			  		<delivery ng-show="store.delivery_time && store.delivery_time != 0">
+			  			<b>Tempo estimado para entrega:</b> {{store.delivery_time}} minutos<br />
+			  		</delivery>
+			  		<pickupstore ng-show="store.pickup_store_time && store.pickup_store_time != 0">
+			  			<b>Tempo estimado para retirar na loja:</b> {{store.pickup_store_time}} minutos 
+			  		</pickupstore>
+			  	</p>
+			    <p>
+			      <b>Endereço:</b> {{store.address}}
+			    </p>
+
+			    <p>
+			      <b>Telefone:</b> {{store.phone}}
+			    </p>
+
+			    <p>
+			    	<b>Cartões Aceitos</b><br />
+			    	<span> 
+			    		<img ng-show="store.cards.is_checked_visa" src="img/cards/visa.png" width="30px" height="20px" />
+			    		<img ng-show="store.cards.is_checked_master" src="img/cards/mastercard.png" width="30px" height="20px" />
+			    		<img ng-show="store.cards.is_checked_maestro" src="img/cards/maestro.png" width="30px" height="20px" />
+			    		<img ng-show="store.cards.is_checked_sodexo" src="img/cards/sodexo.png" width="30px" height="20px" />
+			    		<img ng-show="store.cards.is_checked_hipercard" src="img/cards/hiper.png" width="30px" height="20px" />
+			    		<img ng-show="store.cards.is_checked_goodcard" src="img/cards/good.png" width="30px" height="20px" />
+			    		<img ng-show="store.cards.is_checked_elo" src="img/cards/elo.png" width="30px" height="20px" />
+			    		<img ng-show="store.cards.is_checked_dinersclub" src="img/cards/diners.png" width="30px" height="20px" />
+			    		<img ng-show="store.cards.is_checked_american" src="img/cards/american.png" width="30px" height="20px" />
+			    		<img ng-show="store.cards.is_checked_vr" src="img/cards/vR.png" width="30px" height="20px" />
+			    	</span>
+			    </p>
+
+			    <p style="text-align: center;">
+			    	<a href="#" ng-click="storesCtrl.showMap(store)" 
+			    		ng-show="!storesCtrl.isDelivery" target="_system"
+			    		class="button button-store" style="width: 140px;">
+			    		Ver Mapa
+			    	</a>
+			    	<buttons-pickup ng-show="storesCtrl.isDelivery"> 
+				    	<button ng-click="storesCtrl.selectAnticipate(store.id)" style="width: 130px;"
+				    		ng-show="store.isPickupStore" class="button button-store" >
+				    		Retirar na loja
+				    	</button>
+				    	<button href="#" ng-click="storesCtrl.selectDelivery(store.id)" style="width: 130px;" 
+				    		ng-show="store.isDelivery" class="button button-store" >
+				    		Delivery
+				    	</button>
+			    	</buttons-pickup>
+				</p>
+			</div>
+		</div>
+  	</ion-content>
+</ion-view>

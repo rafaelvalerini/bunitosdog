@@ -1,0 +1,24 @@
+<ion-view class="loginBg">
+  <ion-content class="padding main">
+  <div class="row responsive-sm padding remvoeBP">
+	  <div class="col">
+			<div class="app-logo"><img src="img/login.png"></div> 
+			
+			<div class="list list-inset removePM">
+			  <label class="item item-input"><input type="email" ng-model="loginCtrl.user.user" placeholder="Usuário" > </label>
+			  <label class="item item-input"><input type="password" ng-model="loginCtrl.user.password" placeholder="Senha" > </label>
+			</div>
+
+			<div class="button-bar">
+				<button class="button ion-unlocked button-block button-login" ng-click="loginCtrl.login()" > Login </button>  
+				<a href="#/app/user" class="button ion-unlocked button-block button-login" > Cadastre-se </a>  
+			</div>
+
+	  </div>
+  </div>
+
+  </ion-content>
+
+ 
+  	
+</ion-view>

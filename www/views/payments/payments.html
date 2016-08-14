@@ -1,0 +1,58 @@
+<ion-view class="loginBg" >
+	
+	<ion-content class="padding main">
+		<div class="list">
+			<div class="item item-avatar">
+				<img src="img/formasdepagamento.png" style="background-color: white;"/>
+				<h2>Forma de pagamento</h2>
+				<p>Selecionar a forma de pagamento</p>
+			</div>
+		</div>
+		<div class="list card">
+			<div class="item item-avatar">
+				<img src="img/dinheiro.png" style="background-color: white;"/>
+				<h2><ion-radio ng-model="paymentsCtrl.payment" style="margin-left: -68px;margin-bottom: -30px;margin-top: -15px;" ng-value="2">Dinheiro</ion-radio></h2>
+				<p>Clique em 'Dinheiro'</p>
+			</div>
+			<div class="item item-body" style="margin-left: 10px; margin-right: 10px; ">
+				<label class="item item-input item-stacked-label">
+					<span class="input-label">Troco para</span>
+					<input type="number" ng-disabled="paymentsCtrl.payment != 2" placeholder="Digite o valor" ng-model="paymentsCtrl.backValue">
+				</label>
+			</div>
+		</div>
+		<div class="list card">
+			<div class="item item-avatar" >
+				<img src="img/cartao.png" style="background-color: white;"/>
+				<h2>
+					<ion-radio ng-model="paymentsCtrl.payment" style="margin-left: -68px;margin-bottom: -30px;margin-top: -15px;" ng-value="1">Cartão de Crédito/Débito
+					</ion-radio>
+				</h2>
+				<p>Clique em 'Cartão de Crédito/Débito'</p>
+			</div>
+			<div class="item item-body" style="margin-left: 10px; margin-right: 10px; text-align: center;">
+				<label class="item item-input item-select">
+			    <div class="input-label" style="margin-left: -23px;">
+				      Cartão
+				    </div>
+				    <select ng-model="paymentsCtrl.typeCard" ng-disabled="paymentsCtrl.payment != 1" style="padding: 0 37px;">
+							<option value="1" ng-show="paymentsCtrl.store.cards.is_checked_visa">Visa</option>
+							<option value="2" ng-show="paymentsCtrl.store.cards.is_checked_master">MasterCard</option>
+							<option value="3" ng-show="paymentsCtrl.store.cards.is_checked_maestro">Maestro</option>
+							<option value="4" ng-show="paymentsCtrl.store.cards.is_checked_sodexo">Sodexo</option>
+							<option value="5" ng-show="paymentsCtrl.store.cards.is_checked_hipercard">Hipercard</option>
+							<option value="6" ng-show="paymentsCtrl.store.cards.is_checked_goodcard">Good Card</option>
+							<option value="7" ng-show="paymentsCtrl.store.cards.is_checked_elo">Elo</option>
+							<option value="8" ng-show="paymentsCtrl.store.cards.is_checked_dinersclub">Dinners Club</option>
+							<option value="9" ng-show="paymentsCtrl.store.cards.is_checked_american">American Express</option>
+							<option value="8" ng-show="paymentsCtrl.store.cards.is_checked_alelo">Alelo</option>
+							<option value="10" ng-show="paymentsCtrl.store.cards.is_checked_vr">Vr</option>
+						</select>
+				</label>
+			</div>
+		</div>
+		<button class="button button-block button-continue" ng-click="paymentsCtrl.confirmPayments()">
+			Continuar
+		</button>
+	</ion-content>
+</ion-view>

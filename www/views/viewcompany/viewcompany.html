@@ -1,0 +1,50 @@
+<ion-view class="loginBg" >
+	<div class="bar bar-header bar-main">
+		<div class="buttons">
+	    	<a href="#" onclick="window.history.back();" class="button icon ion-chevron-left headerButton" ></a>
+	   	</div>
+	  	<h1 class="title"><img src="img/header-logo.png"></h1>
+	</div>
+  	<ion-content class="padding main">
+  		<div class="list card">
+			<div class="item item-avatar">
+			    <img src="img/shop.png">
+			    <h2>{{viewCompanyCtrl.company.name}}</h2>
+			    <p>{{viewCompanyCtrl.company.distance}}</p>
+			  </div>
+
+			  <div class="item item-body">
+			  	<p>
+			      {{viewCompanyCtrl.company.Description}}
+			    </p>
+
+			    <p>
+			      {{viewCompanyCtrl.company.Address}}
+			    </p>
+
+			    <p>
+			    	<b>Cartões Aceitos</b><br />
+			    	<span> 
+			    		<img src="img/cards/visa.png" width="30px" height="20px" />
+			    		<img src="img/cards/mastercard.png" width="30px" height="20px" />
+			    		<img src="img/cards/maestro.png" width="30px" height="20px" />
+			    		<img src="img/cards/sodexo.png" width="30px" height="20px" />
+			    		<img src="img/cards/hiper.png" width="30px" height="20px" />
+			    		<img src="img/cards/good.png" width="30px" height="20px" />
+			    		<img src="img/cards/elo.png" width="30px" height="20px" />
+			    		<img src="img/cards/diners.png" width="30px" height="20px" />
+			    		<img src="img/cards/american.png" width="30px" height="20px" />
+			    		<img src="img/cards/vR.png" width="30px" height="20px" />
+			    	</span>
+			    </p>
+
+			    <br />
+
+			    <p style="text-align: center;">
+			    	<a href="#" ng-click="newTask()" target="_system" class="button button-balanced" style="width: 140px;">Ver Mapa</a> 
+				</p>
+			</div>
+		</div>
+  	</ion-content>
+  	
+</ion-view>

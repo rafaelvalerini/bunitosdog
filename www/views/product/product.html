@@ -1,0 +1,18 @@
+<ion-view class="loginBg" >
+	<ion-content class="padding main">
+		<div class="list card" ng-repeat="product in productCtrl.menu.products" ng-show="product.show">
+				<a  class="item item-avatar" ng-click="productCtrl.next(product)" >
+					<img src="{{product.logo}}" style="background-color: white;">
+					<h2 style="margin-top: 11px; margin-left: -5px;">{{product.name}}</h2>
+					<span class="badge badge-assertive" style="margin-top: 9px; margin-right: -20px;">{{product.value}}</span>
+				</a>
+
+				<div class="item item-body" ng-show="product.description">
+					<p>
+						{{product.description}}
+					</p>
+				</div>
+		</div>
+	</ion-content>
+
+</ion-view>

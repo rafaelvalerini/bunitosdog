@@ -1,0 +1,14 @@
+<ion-view class="loginBg">
+  	<ion-content class="padding main">
+  		<div class="list">
+
+		    <a ng-repeat="company in companiesCtrl.companies" class="item item-avatar" href="#/app/company/{{company.id}}">
+		      <img src="{{companiesCtrl.size.logo}}">
+		      <h2>{{company.name}}</h2>
+		      <p>{{company.distance}} - <span class="open">Aberto</span></p>
+		      <span class="badge badge-assertive">{{company.value}}</span>
+		    </a>
+
+		</div>
+  	</ion-content>
+</ion-view>
